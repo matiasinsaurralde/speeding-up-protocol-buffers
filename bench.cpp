@@ -9,8 +9,8 @@
 
 #include <google/protobuf/arena.h>
 
-#include "out/person.pb.h"
-#include "out/lite_person.pb.h"
+#include "bindings/person.pb.h"
+#include "bindings/lite_person.pb.h"
 
 google::protobuf::Arena the_arena;
 
