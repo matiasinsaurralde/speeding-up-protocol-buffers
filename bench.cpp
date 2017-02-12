@@ -121,4 +121,7 @@ BENCHMARK(BM_perform_arena_serialization);
 BENCHMARK(BM_perform_arena_lite_serialization);
 BENCHMARK(BM_perform_arena_speed_serialization);
 
-BENCHMARK_MAIN();
+int main(int argc, char** argv) {
+  benchmark::Initialize(&argc, argv);
+  benchmark::RunSpecifiedBenchmarks();
+}
