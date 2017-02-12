@@ -14,6 +14,8 @@
 #include "bindings/speed_person.pb.h"
 
 google::protobuf::Arena the_arena;
+google::protobuf::Arena lite_arena;
+google::protobuf::Arena speed_arena;
 
 void BM_perform_serialization(benchmark::State& state) {
   while (state.KeepRunning()) {
@@ -81,7 +83,7 @@ void BM_perform_arena_serialization(benchmark::State& state) {
 
 void BM_perform_arena_lite_serialization(benchmark::State& state) {
   while (state.KeepRunning()) {
-    LitePerson* p = google::protobuf::Arena::CreateMessage<LitePerson>(&the_arena);
+    LitePerson* p = google::protobuf::Arena::CreateMessage<LitePerson>(&lite_arena);
 
     std::string name("john");
     std::string email("john@test.com");
@@ -97,7 +99,7 @@ void BM_perform_arena_lite_serialization(benchmark::State& state) {
 
 void BM_perform_arena_speed_serialization(benchmark::State& state) {
   while (state.KeepRunning()) {
-    SpeedPerson* p = google::protobuf::Arena::CreateMessage<SpeedPerson>(&the_arena);
+    SpeedPerson* p = google::protobuf::Arena::CreateMessage<SpeedPerson>(&speed_arena);
 
     std::string name("john");
     std::string email("john@test.com");
