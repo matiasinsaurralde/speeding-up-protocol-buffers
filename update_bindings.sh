@@ -1,6 +1,5 @@
 #!/bin/sh
 
 echo Updating C++ bindings...
-# protoc -I. --go_out=plugins=grpc:../ *.proto
-# cd .. ; ls -l *.pb.go ; cd -
+cd proto && protoc -I. --cpp_out=../out *.proto
 
